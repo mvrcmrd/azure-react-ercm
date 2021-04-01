@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react'; */
+import React from 'react';
 import './App.css';
-/*import Functions from './Functions';*/
 
-class App extends Component {
+class Square extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -24,13 +24,7 @@ class App extends Component {
 		let color = this.rgb2hex (r, g, b);
 		return color;
 	}
-
-	handleTaskChange = (event) => {
-		this.setState({
-			newTask: event.target.value,
-		})
-	}
-
+	
 	render() {
 		const baseColor = this.rgb2hex (170, 170, 170);
 		/*const baseColor = this.rgb2hex (221, 221, 221);*/
@@ -46,13 +40,13 @@ class App extends Component {
 		return (
 			<button
 				key={number.toString()}
-				className="trapeze"
-				style={{borderBottom: backColor, color: fontColor}}
+				className="square"
+				style={{backgroundColor: backColor, color: fontColor}}
 			>
-				{number}
+				{this.props.value}
 			</button>
 		);
 	}
 }
 
-export default App;
+export default Square;
