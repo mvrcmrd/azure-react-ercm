@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Intermediate1 from './Intermediate1';
+import Intermediate from './Intermediate1';
 
 ReactDOM.render(
-	<Intermediate1 />, 
+	<Intermediate />, 
 	document.getElementById('root')
 );
