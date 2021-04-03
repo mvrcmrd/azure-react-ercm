@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Intermediate from './Intermediate';
+import App from './App.js';
+
 
 ReactDOM.render(
-	<Intermediate />, 
+	<App />,
 	document.getElementById('root')
 );

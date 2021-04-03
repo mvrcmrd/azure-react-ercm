@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Circle from './Circle';
-import Square from './Square';
-import {randomNumber, rgb2hex} from './Functions';
+import {randomNumber, rgb2hex, randomizeColor} from './Functions.js';
 
-class Intermediate extends Component {
+export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.forceRandom = this.forceRandom.bind (this);
@@ -19,15 +17,19 @@ class Intermediate extends Component {
 
 		for (let i = 1; i < 145; i++) {
 			let randShape = randomNumber(0, 2);
-			let randCode = randomNumber(65, 90);
+			let randCode = randomNumber(65, 91);
 			let randLetter = String.fromCharCode (randCode);
 			if (randShape === 0) {
-				table.push(<Square
+				table.push(<Shape
 					key={i.toString()}
+					id={i.toString()}
+					name="square"
 					value={randLetter} />);
 			} else {
-				table.push(<Circle
+				table.push(<Shape
 					key={i.toString()}
+					id={i.toString()}
+					name="circle"
 					value={randLetter} />);
 			}
 		}
@@ -44,7 +46,7 @@ class Intermediate extends Component {
 	}
 	
 	render() {
-		/*const baseColor = this.rgb2hex (170, 170, 170);*/
+		/*const baseColor = rgb2hex (170, 170, 170);*/
 		const baseColor = rgb2hex (221, 221, 221);
 		let table = this.createTable ();
 		return (
@@ -80,4 +82,36 @@ class Intermediate extends Component {
 	}
 }
 
-export default Intermediate;
+class Shape extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: null,
+		};
+	}
+
+	handleClick = (e) => {
+		console.log (e.target.value, e.target.id);
+	}
+
+	render() {
+		const baseColor = rgb2hex (221, 221, 221);
+		let backColor = randomizeColor (baseColor);
+		let fontColor = randomizeColor (backColor);
+		let characterInside = this.props.value;
+		let keyValue = this.props.id;
+		let className = this.props.name;
+		return (
+			<button
+				key={keyValue}
+				id={keyValue}
+				value={characterInside.toString()}
+				className={className}
+				style={{backgroundColor: backColor, color: fontColor}}
+				onClick={this.handleClick.bind(this)}
+			>
+				{characterInside}
+			</button>
+		);
+	}
+}
