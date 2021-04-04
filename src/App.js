@@ -3,6 +3,10 @@ import './App.css';
 /*import facedraw from './facedraw1.png';*/
 import {randomNumber, rgb2hex, randomizeColor} from './Functions.js';
 
+/************************************************************
+* This class is responsible of building the business logic  *
+* The class build the header, body and footer of the mosaic *
+************************************************************/
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -13,6 +17,11 @@ export default class App extends Component {
 		};
 	}
 
+	/*********************************************
+	* Function to create a table with:           *
+	*		The shape                            *
+	*		Code to print in the foreground      *
+	*********************************************/
 	createTable () {
 		let table = [];
 
@@ -37,6 +46,10 @@ export default class App extends Component {
 		return table;
 	}
 
+	/******************************************************
+	* Function to refresh the complete mosaic with random *
+	* shapes, characters and colors                       *
+	******************************************************/
 	forceRandom() {
 		const newRendering = this.state.newRendering;
 		if (newRendering) {
@@ -83,34 +96,35 @@ export default class App extends Component {
 	}
 }
 
+/********************************************************************
+* This class is responsible for building every cell of the mosaic   *
+* The class receive the shape and the foreground character to print *
+* and calculate random color codes for these elements               *
+********************************************************************/
 class Shape extends Component {
 	constructor(props) {
 		super(props);
 		this.refButton = React.createRef();
-		this.handleClick = this.handleClick.bind (this);
+		this.clickShape = this.clickShape.bind (this);
 		this.state = {
 			value: null,
-			innerText: null,
+			innerHTML: null,
 		};
 	}
 
-	handleClick = (e) => {
-		/*console.log (e.target.value, e.target.id);*/
-		console.log (this.refButton);
-/*		this.refButton.current.innerText = "m";
-		let aux = "facedraw1.png";
-		let aux = {facedraw}
-		console.log(aux);
-		let innerHTML = "<img src='./" + aux + "' //>";
-		console.log(innerHTML);
-		this.refButton.current.innerHTML = innerHTML;
-		console.log (this.refButton);*/
-		if (this.refButton.current.innerText === "m") {
-			this.refButton.current.innerText = this.state.innerText;
+	/***********************************************************
+	* Function to update a single shape. Everytime is accessed *
+	* the character is swapped to a number and when accessed   *
+	* again, recovers the character associated to the shape    *
+	* Shape and colors are not updated                         *
+	***********************************************************/
+/*	clickShape = () => { */
+	clickShape () {
+		if (this.refButton.current.innerText === "5") {
+			this.refButton.current.innerHTML = this.innerHTML;
 		} else {
-/*			this.state.innerText = this.refButton.current.innerText;*/
-			this.setState ({innerText: this.refButton.current.innerText});
-			this.refButton.current.innerText = "m";
+			this.innerHTML = this.refButton.current.innerHTML;
+			this.refButton.current.innerHTML = "5";
 		}
 	}
 
@@ -129,7 +143,7 @@ class Shape extends Component {
 				value={characterInside.toString()}
 				className={className}
 				style={{backgroundColor: backColor, color: fontColor}}
-				onClick={this.handleClick}
+				onClick={this.clickShape}
 			>
 				{characterInside}
 			</button>
