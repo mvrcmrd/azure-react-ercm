@@ -40,32 +40,22 @@
 .base {
 /*	width: 484px;
 	height: 540px;
-	border: 2px solid grey;
-	background-color: #111111;
 	margin-top: 40px;
 	margin-left: 40px;
-	margin-bottom: 40px;*/
+	margin-bottom: 40px;
 	width: 60vw;
 	height: 90vh;
-	border: 2px solid grey;
-	background-color: #111111;
 	margin-top: 2vw;
 	margin-left: 2vw;
-	margin-bottom: 2vw;
+	margin-bottom: 2vw;*/
+	width: 86vmin;
+	height: 95vmin;
+	border: 2px solid grey;
+	background-color: #111111;
+	margin-top: 2vmin;
+	margin-left: 2vmin;
+	margin-bottom: 2vmin;
 }
-
-@media screen and (min-width: 500px) {
-	.base {
-		width: 484px;
-	}
-}
-
-@media screen and (min-height: 550px) {
-	.base {
-		height: 540px;
-	}
-}
-
 
 .header {
 	width: 100%;
@@ -104,7 +94,8 @@
 	background-color: lightgrey;
 	color: black;
 	text-align: center;
-	font-size: 80%;
+/*	font-size: 80%;*/
+	font-size: 2.5vmin;
 	font-weight: bold;
 	margin-left: 35%;
 	margin-top: 1.5%;
@@ -117,33 +108,32 @@
 	height: 8.3%;
 	width: 8.3%;
 	/*float: left;*/
-	/*line-height: 34px;*/
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
 	padding: 0;
-	font-size: 110%;
+/*	font-size: 110%;*/
+	font-size: 3vmin;
 	font-weight: bold;
 	text-align: center;
 }
 
 .circle {
-/*	width: 0.5rem;
-	height: 0.5rem;*/
 	border: 0px;
 	width: 8.3%;
 	height: 8.3%;
 	border-radius: 50%;
-	/*display: flex;*/
-	justify-content: center;
-	/*align-items: center;*/
 	/*float: left;*/
+	/*display: flex;*/
+	/*align-items: center;*/
+	justify-content: center;
 	text-align: center;
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
 	padding: 0;
-	font-size: 110%;
+/*	font-size: 110%;*/
+	font-size: 3vmin;
 	font-weight: bold;
 }
 
@@ -160,7 +150,8 @@
 	margin-right: 0px;
 	margin-top: 0px;
 	padding: 0;
-	font-size: 50%;
+/*	font-size: 50%;*/
+	font-size: 1vmin;
 	font-weight: bold;
 	color: blue;
 }

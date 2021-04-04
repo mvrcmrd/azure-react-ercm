@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+/*import facedraw from './facedraw1.png';*/
 import {randomNumber, rgb2hex, randomizeColor} from './Functions.js';
 
 export default class App extends Component {
@@ -85,13 +86,32 @@ export default class App extends Component {
 class Shape extends Component {
 	constructor(props) {
 		super(props);
+		this.refButton = React.createRef();
+		this.handleClick = this.handleClick.bind (this);
 		this.state = {
 			value: null,
+			innerText: null,
 		};
 	}
 
 	handleClick = (e) => {
-		console.log (e.target.value, e.target.id);
+		/*console.log (e.target.value, e.target.id);*/
+		console.log (this.refButton);
+/*		this.refButton.current.innerText = "m";
+		let aux = "facedraw1.png";
+		let aux = {facedraw}
+		console.log(aux);
+		let innerHTML = "<img src='./" + aux + "' //>";
+		console.log(innerHTML);
+		this.refButton.current.innerHTML = innerHTML;
+		console.log (this.refButton);*/
+		if (this.refButton.current.innerText === "m") {
+			this.refButton.current.innerText = this.state.innerText;
+		} else {
+/*			this.state.innerText = this.refButton.current.innerText;*/
+			this.setState ({innerText: this.refButton.current.innerText});
+			this.refButton.current.innerText = "m";
+		}
 	}
 
 	render() {
@@ -104,11 +124,12 @@ class Shape extends Component {
 		return (
 			<button
 				key={keyValue}
+				ref={this.refButton}
 				id={keyValue}
 				value={characterInside.toString()}
 				className={className}
 				style={{backgroundColor: backColor, color: fontColor}}
-				onClick={this.handleClick.bind(this)}
+				onClick={this.handleClick}
 			>
 				{characterInside}
 			</button>
