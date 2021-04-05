@@ -1,3 +1,4 @@
+/*
 .App {
 	text-align: center;
 }
@@ -36,7 +37,7 @@
 		transform: rotate(360deg);
 	}
 }
-
+*/
 .base {
 /*	width: 484px;
 	height: 540px;
@@ -111,9 +112,10 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
-	padding: 0;
+	margin-bottom: 0px;
+	padding: 0px;
 /*	font-size: 110%;*/
-	font-size: 3vmin;
+	font-size: 4.5vmin;
 	font-weight: bold;
 	text-align: center;
 }
@@ -131,9 +133,10 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
+	margin-bottom: 0px;
 	padding: 0;
 /*	font-size: 110%;*/
-	font-size: 3vmin;
+	font-size: 4.5vmin;
 	font-weight: bold;
 }
 
@@ -154,4 +157,16 @@
 	font-size: 1vmin;
 	font-weight: bold;
 	color: blue;
+}
+.image {
+	border: 0px;
+	/*width: 70%;*/
+	width: 4.5vmin;
+	float: center;
+	text-align: center;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
 }

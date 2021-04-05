@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-/*import facedraw from './facedraw1.png';*/
+import facedraw from './facedraw.png';
 import {randomNumber, rgb2hex, randomizeColor} from './Functions.js';
 
 /************************************************************
@@ -33,13 +33,13 @@ export default class App extends Component {
 				table.push(<Shape
 					key={i.toString()}
 					id={i.toString()}
-					name="square"
+					name='square'
 					value={randLetter} />);
 			} else {
 				table.push(<Shape
 					key={i.toString()}
 					id={i.toString()}
-					name="circle"
+					name='circle'
 					value={randLetter} />);
 			}
 		}
@@ -64,28 +64,28 @@ export default class App extends Component {
 		const baseColor = rgb2hex (221, 221, 221);
 		let table = this.createTable ();
 		return (
-			<div className="base">
-				<div className="header">
+			<div className='base'>
+				<div className='header'>
 					<button
-						className="circle1"
+						className='circle1'
 						style={{backgroundColor: 'red', color: 'red'}}
 					>R</button>
 					<button
-						className="circle1"
+						className='circle1'
 						style={{backgroundColor: 'green', color: 'green'}}
 					>G</button>
 					<button
-						className="circle1"
+						className='circle1'
 						style={{backgroundColor: 'yellow', color: 'yellow'}}
 					>Y</button>
 				</div>
-				<div className="mosaic">
+				<div className='mosaic'>
 					{table}
 					<p style={{color: baseColor, fontSize:2}}>End</p>
 				</div>
-				<div className="footer">
+				<div className='footer'>
 					<button
-						className="randbutton"
+						className='randbutton'
 						onClick={this.forceRandom}
 					>
 						Randomize!
@@ -120,11 +120,13 @@ class Shape extends Component {
 	***********************************************************/
 /*	clickShape = () => { */
 	clickShape () {
-		if (this.refButton.current.innerText === "5") {
+/*		console.log (this.refButton);*/
+		if (this.refButton.current.innerText === "") {
 			this.refButton.current.innerHTML = this.innerHTML;
 		} else {
 			this.innerHTML = this.refButton.current.innerHTML;
-			this.refButton.current.innerHTML = "5";
+			this.refButton.current.innerHTML = 
+					"<img class='image' src='"+facedraw+"' alt='5'/>";
 		}
 	}
 
