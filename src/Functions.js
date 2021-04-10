@@ -1,4 +1,3 @@
-/*export {randomNumber, rgb2hex, randomizeColor};*/
 export {randomNumber, randomizeColor};
 
 /*************************************************************

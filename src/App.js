@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import facedraw from './facedraw.png';
-import {randomNumber, rgb2hex, randomizeColor} from './Functions.js';
+import {randomNumber, randomizeColor} from './Functions.js';
 
 /************************************************************
 * This class is responsible of building the business logic  *
@@ -12,7 +12,7 @@ export default class App extends Component {
 		super(props);
 		this.forceRandom = this.forceRandom.bind (this);
 		this.state = {
-			value: null,
+/*			value: null,*/
 			newRendering: false
 		};
 	}
@@ -60,8 +60,7 @@ export default class App extends Component {
 	}
 	
 	render() {
-		/*const baseColor = rgb2hex (170, 170, 170);*/
-		const baseColor = rgb2hex (221, 221, 221);
+		const baseColor = "#dddddd";
 		let table = this.createTable ();
 		return (
 			<div className='base'>
@@ -69,19 +68,18 @@ export default class App extends Component {
 					<button
 						className='circle1'
 						style={{backgroundColor: 'red', color: 'red'}}
-					>R</button>
+					></button>
 					<button
 						className='circle1'
 						style={{backgroundColor: 'green', color: 'green'}}
-					>G</button>
+					></button>
 					<button
 						className='circle1'
 						style={{backgroundColor: 'yellow', color: 'yellow'}}
-					>Y</button>
+					></button>
 				</div>
 				<div className='mosaic'>
 					{table}
-					<p style={{color: baseColor, fontSize:2}}>End</p>
 				</div>
 				<div className='footer'>
 					<button
@@ -95,6 +93,7 @@ export default class App extends Component {
 		);
 	}
 }
+/*					<p style={{color: baseColor, fontSize:2}}>End</p>*/
 
 /********************************************************************
 * This class is responsible for building every cell of the mosaic   *
@@ -131,7 +130,9 @@ class Shape extends Component {
 	}
 
 	render() {
-		const baseColor = rgb2hex (221, 221, 221);
+		/*const baseColor = rgb2hex (170, 170, 170);*/
+		/*const baseColor = rgb2hex (221, 221, 221);*/
+		const baseColor = "#dddddd";
 		let backColor = randomizeColor (baseColor);
 		let fontColor = randomizeColor (backColor);
 		let characterInside = this.props.value;
