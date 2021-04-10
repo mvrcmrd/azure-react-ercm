@@ -60,7 +60,6 @@ export default class App extends Component {
 	}
 	
 	render() {
-		const baseColor = "#dddddd";
 		let table = this.createTable ();
 		return (
 			<div className='base'>
@@ -93,7 +92,6 @@ export default class App extends Component {
 		);
 	}
 }
-/*					<p style={{color: baseColor, fontSize:2}}>End</p>*/
 
 /********************************************************************
 * This class is responsible for building every cell of the mosaic   *
