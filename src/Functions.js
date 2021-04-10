@@ -73,7 +73,7 @@ function randomizeColor (baseColor) {
 	let g = Math.floor (Math.random()*256);
 	let b = Math.floor (Math.random()*256);
 	let contrastColors = contrast(r, g, b, rb, gb, bb);
-	while (contrastColors > 0.2 && contrastColors < 4) {
+	while (contrastColors > (1./4.5) && contrastColors < 4.5) {
 		r = Math.floor (Math.random()*256);
 		g = Math.floor (Math.random()*256);
 		b = Math.floor (Math.random()*256);
